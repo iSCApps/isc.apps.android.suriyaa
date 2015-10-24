@@ -1,9 +1,12 @@
+package isc.apps.android.suriyaa;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Menu;
 
-public class Splash extends Activity {
+public class SplashScreen extends Activity {
 
     /** Duration of wait **/
     private final int SPLASH_DISPLAY_LENGTH = 1000;
@@ -20,9 +23,9 @@ public class Splash extends Activity {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(Splash.this,Menu.class);
-                Splash.this.startActivity(mainIntent);
-                Splash.this.finish();
+                Intent mainIntent = new Intent(SplashScreen.this,Menu.class);
+                SplashScreen.this.startActivity(mainIntent);
+                SplashScreen.this.finish();
             }
         }, SPLASH_DISPLAY_LENGTH);
     }
