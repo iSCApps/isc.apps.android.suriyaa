@@ -9,9 +9,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 package="isc.apps.android.suriyaa" >
 
-<!-- Set minimum SDK version for 4.0.3 (API 15) and maximum/target SDK version 6.0 (API 23)-->
-<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="23" />
-
 <!-- Set app permission on a android device -->
 <uses-permission android:name="android.permission.INTERNET" />
 
