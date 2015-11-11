@@ -15,18 +15,39 @@ package="isc.apps.android.suriyaa" >
 
 <!-- Set icon -->
 <application
-    android:allowBackup="true"
+    android:allowBackup="false"
     android:icon="@drawable/ic_launcher"
     android:label="@string/app_name">
 
-    <!-- Main activity -->
+    <!-- SplashScreen activity -->
     <activity
-        android:name=".AndroidMobileAppActivity"
-        android:label="@string/app_name" >
+        android:name=".SplashScreen"
+        android:label="@string/app_name">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+    <!-- Main activity -->
+    <activity
+        android:name=".AndroidMobileAppActivity"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <intent-filter>
+            <!-- Add action, category, data to intent-filter  -->
+
+            <!-- Standard categories. -->
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <!-- Standard activity actions. -->
+            <action android:name="android.intent.action.VIEW" />
+            <action android:name="android.intent.action.SYNC" />
+
+            <!-- Match intents with any mime type. -->
+            <data android:mimeType="*/*" />
         </intent-filter>
     </activity>
 </application>
