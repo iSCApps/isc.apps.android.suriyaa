@@ -3,5 +3,6 @@
     <string name="hello">Hello World, AndroidMobileAppActivity!</string>
     <string name="splash">Hello World, splash</string>
     <string name="app_name">Suriyaa Kudo</string>
+    <string name="contentDescription">Suriyaa Kudo</string>
     <string name="author">Suriyaa Kudo (@iSC Apps Team)</string>
 </resources>
