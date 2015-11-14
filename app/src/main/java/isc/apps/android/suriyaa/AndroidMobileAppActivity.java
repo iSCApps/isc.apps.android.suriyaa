@@ -15,7 +15,7 @@ public class AndroidMobileAppActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        WebView mainWebView = (WebView) findViewById(R.id.mainWebView);
+        WebView mainWebView = (WebView) findViewById(R.id.WebViewID);
         
         WebSettings webSettings = mainWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
