@@ -2,31 +2,88 @@ package isc.apps.android.suriyaa;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
+import android.view.MotionEvent;
+import android.widget.ImageView;
 
 public class SplashScreen extends Activity {
 
-    /** Duration of wait **/
-    private final int SPLASH_DISPLAY_LENGTH = 1000;
+    /**
+     * The thread to process splash screen events
+     */
+    private Thread mSplashThread;
 
     /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
-        setContentView(R.layout.splashscreen);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        /* New Handler to start the Menu-Activity 
-         * and close this Splash-Screen after some seconds.*/
-        new Handler().postDelayed(new Runnable(){
+        // Splash screen view
+        setContentView(R.layout.splash);
+
+        // Start animating the image
+        final ImageView splashImageView = (ImageView) findViewById(R.id.SplashImageView);
+        splashImageView.setBackgroundResource(R.drawable.flag);
+        final AnimationDrawable frameAnimation = (AnimationDrawable)splashImageView.getBackground();
+        splashImageView.post(new Runnable(){
             @Override
             public void run() {
-                /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(SplashScreen.this,Menu.class);
-                SplashScreen.this.startActivity(mainIntent);
-                SplashScreen.this.finish();
+                frameAnimation.start();
             }
-        }, SPLASH_DISPLAY_LENGTH);
+        });
+
+
+        final SplashScreen sPlashScreen = this;
+
+        // The thread to wait for splash screen events
+        mSplashThread =  new Thread(){
+            @Override
+            public void run(){
+                try {
+                    synchronized(this){
+                        // Wait given period of time or exit on touch
+                        wait(5000);
+                    }
+                }
+                catch(InterruptedException ex){
+                }
+
+                finish();
+
+                // Run next activity
+                Intent intent = new Intent();
+                intent.setClass(sPlashScreen, MainActivity.class);
+                startActivity(intent);
+                stop();
+            }
+        };
+
+        mSplashThread.start();
+
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        super.onCreateOptionsMenu(menu);
+        return false;
+    }
+
+    /**
+     * Processes splash screen touch events
+     */
+    @Override
+    public boolean onTouchEvent(MotionEvent evt)
+    {
+        if(evt.getAction() == MotionEvent.ACTION_DOWN)
+        {
+            synchronized(mSplashThread){
+                mSplashThread.notifyAll();
+            }
+        }
+        return true;
+    }
+
+
 }
