@@ -33,9 +33,9 @@ package="isc.apps.android.suriyaa" >
         android:name="SplashScreen"
         android:theme="@style/Theme.Transparent">
         <intent-filter>
-                    <action android:name="android.intent.action.MAIN"></action>
-                    <category android:name="android.intent.category.LAUNCHER"></category>
-                </intent-filter>
+            <action android:name="android.intent.action.MAIN"></action>
+            <category android:name="android.intent.category.LAUNCHER"></category>
+        </intent-filter>
     </activity>
 
     <!-- Main activity -->
@@ -43,10 +43,12 @@ package="isc.apps.android.suriyaa" >
         android:name="MainActivity"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        <!-- READ http://stackoverflow.com/a/34276221/5157221!
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.DEFAULT"/>
         </intent-filter>
+        -->
 
         <!-- Parse Push Service -->
         <!--
