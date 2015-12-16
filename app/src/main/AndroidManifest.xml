@@ -48,7 +48,7 @@ package="isc.apps.android.suriyaa" >
         </intent-filter>
     </activity>
 
-        <!-- Parse Push Service -->
+        <!-- Parse Push Service / Required for Parse.com notifications -->
         <service android:name="com.parse.PushService" />
         <receiver android:name="com.parse.ParsePushBroadcastReceiver"
             android:exported="false">
@@ -67,6 +67,7 @@ package="isc.apps.android.suriyaa" >
             <category android:name="isc.apps.android.suriyaa" />
           </intent-filter>
         </receiver>
+        <!-- END Parse.com requirements -->
 
 </application>
 
