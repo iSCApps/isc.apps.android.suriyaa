@@ -46,6 +46,7 @@ package="isc.apps.android.suriyaa" >
         <intent-filter>
             <category android:name="android.intent.category.DEFAULT"/>
         </intent-filter>
+    </activity>
 
         <!-- Parse Push Service -->
         <service android:name="com.parse.PushService" />
@@ -67,7 +68,6 @@ package="isc.apps.android.suriyaa" >
           </intent-filter>
         </receiver>
 
-    </activity>
 </application>
 
 </manifest>
