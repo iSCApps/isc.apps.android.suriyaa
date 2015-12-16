@@ -29,8 +29,9 @@ public class MainActivity extends Activity {
 
         mainWebView.loadUrl("http://bit.ly/Suriyaa");
 
-        Parse.initialize(this, "PaeS5Dwb89w55KsabIcHlfbBDdIOte8ER0bCLqL5", "roBo2hGaPFeEjf71JQD8vdHCcoV935AekM5VksQ3");
-        ParseInstallation.getCurrentInstallation().saveInBackground();
+	Parse.initialize(this, Keys.applicationId, Keys.clientKey);
+	ParseInstallation.getCurrentInstallation().saveInBackground();
+	
     }
 
     private class MyCustomWebViewClient extends WebViewClient {
