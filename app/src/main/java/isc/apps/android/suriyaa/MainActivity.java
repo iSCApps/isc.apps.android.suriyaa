@@ -7,9 +7,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.parse.Parse;
-import com.parse.ParseInstallation;
-
 public class MainActivity extends Activity {
     /**
      * Called when the activity is first created.
@@ -27,10 +24,6 @@ public class MainActivity extends Activity {
         mainWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 
         mainWebView.loadUrl("http://bit.ly/Suriyaa");
-
-	Parse.initialize(this, Keys.applicationId, Keys.clientKey);
-	ParseInstallation.getCurrentInstallation().saveInBackground();
-	
     }
 
     private class MyCustomWebViewClient extends WebViewClient {
