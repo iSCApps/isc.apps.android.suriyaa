@@ -9,10 +9,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 package="isc.apps.android.suriyaa" >
 
-<!-- Set app permissions on a android device -->
+<!-- Required app permissions -->
 <uses-permission android:name="android.permission.INTERNET" />
 
 <!-- App permissions for Parse -->
+<uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
 <uses-permission android:name="android.permission.VIBRATE" />
@@ -22,65 +23,67 @@ package="isc.apps.android.suriyaa" >
     android:name="isc.apps.android.suriyaa.permission.C2D_MESSAGE" />
 <uses-permission android:name="isc.apps.android.suriyaa.permission.C2D_MESSAGE" />
 
-<!-- DISABLED - Choose Parse Push Icon
-<meta-data android:name="com.parse.push.notification_icon" android:resource="@drawable/push_icon"/>
--->
-
+<!-- Application section -->
 <application
     android:allowBackup="false"
     android:name=".Parse"
     android:icon="@drawable/ic_launcher"
     android:label="@string/app_name" >
 
-    <!-- Connect the app to Parse
+    <!-- Connect the app to Parse -->
     <meta-data
         android:name="com.parse.APPLICATION_ID"
         android:value="<APPLICATION_ID_HERE>" />
     <meta-data
         android:name="com.parse.CLIENT_KEY"
         android:value="<CLIENT_KEY_HERE>" />
-    -->
 
-    <!-- SplashScreen activity -->
-    <activity
-        android:name="SplashScreen"
-        android:theme="@style/Theme.Transparent">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
+  <!-- Parse Push Service - Required for Parse.com notifications -->
+  <service android:name="com.parse.PushService" />
+  <receiver android:name="com.parse.ParsePushBroadcastReceiver"
+      android:exported="false">
+    <intent-filter>
+      <action android:name="com.parse.push.intent.RECEIVE" />
+      <action android:name="com.parse.push.intent.DELETE" />
+      <action android:name="com.parse.push.intent.OPEN" />
+      </intent-filter>
+  </receiver>
+  <receiver android:name="com.parse.GcmBroadcastReceiver"
+      android:permission="com.google.android.c2dm.permission.SEND">
+    <intent-filter>
+      <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+      <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-    <!-- Main activity -->
-    <activity
-        android:name="MainActivity"
-        android:label="@string/app_name"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        <intent-filter>
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
-    </activity>
+      <category android:name="isc.apps.android.suriyaa" />
+    </intent-filter>
+  </receiver>
+  
+  
+  <!-- Choose Parse Push Icon -->
+  <!--
+  Use @drawable/push_icon instead of @drawable/ic_launcher soon!
+  -->
+  <meta-data android:name="com.parse.push.notification_icon" android:resource="@drawable/ic_launcher"/>
 
-        <!-- Parse Push Service / Required for Parse.com notifications -->
-        <service android:name="com.parse.PushService" />
-        <receiver android:name="com.parse.ParsePushBroadcastReceiver"
-            android:exported="false">
-          <intent-filter>
-            <action android:name="com.parse.push.intent.RECEIVE" />
-            <action android:name="com.parse.push.intent.DELETE" />
-            <action android:name="com.parse.push.intent.OPEN" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.parse.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
-          <intent-filter>
-            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+  <!-- SplashScreen activity -->
+  <activity
+      android:name="SplashScreen"
+      android:theme="@style/Theme.Transparent">
+      <intent-filter>
+          <action android:name="android.intent.action.MAIN" />
+          <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+  </activity>
 
-            <category android:name="isc.apps.android.suriyaa" />
-          </intent-filter>
-        </receiver>
-        <!-- END Parse.com requirements -->
+  <!-- Main activity -->
+  <activity
+      android:name="MainActivity"
+      android:label="@string/app_name"
+      android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+      <intent-filter>
+          <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+  </activity>
 
 </application>
 
