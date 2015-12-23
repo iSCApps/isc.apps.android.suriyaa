@@ -22,6 +22,10 @@ package="isc.apps.android.suriyaa" >
     android:name="isc.apps.android.suriyaa.permission.C2D_MESSAGE" />
 <uses-permission android:name="isc.apps.android.suriyaa.permission.C2D_MESSAGE" />
 
+<!-- Set Parse Push Notification Icon
+<meta-data android:name="com.parse.push.notification_icon" android:resource="@drawable/push_icon"/>
+-->
+
 <!-- Set icon -->
 <application
     android:allowBackup="false"
