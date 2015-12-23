@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize this theme here. -->
+    </style>
+
+<!-- SplashScreen Style -->
     <style name="Animations" parent="@android:Animation" />
     <style name="Animations.SplashScreen">
         <item name="android:windowEnterAnimation">@anim/appear</item>
