@@ -1,13 +1,13 @@
-Additional Grant of Patent Rights Version 2
+# Additional Grant of Patent Rights Version 2
 
-"Software" means the Suriyaa Kudo Android app software distributed by iSC Apps-Community
+> "Software" means the "Suriyaa Kudo Android app" software distributed by iSC Apps-Community!
 
 iSC Apps-Community ("iSC Apps") hereby grants to each recipient of the Software
 ("you") a perpetual, worldwide, royalty-free, non-exclusive, irrevocable
 (subject to the termination provision below) license under any Necessary
 Claims, to make, have made, use, sell, offer to sell, import, and otherwise
 transfer the Software. For avoidance of doubt, no license is granted under
-iSC Apps’s rights in any patent claims that are infringed by (i) modifications
+iSC Appsâ€™s rights in any patent claims that are infringed by (i) modifications
 to the Software made by you or any third party or (ii) the Software in
 combination with any software or other technology.
 
