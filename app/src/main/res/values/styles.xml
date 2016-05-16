@@ -6,7 +6,7 @@
     </style>
 
 <!-- SplashScreen Style -->
-    <style name="Animations" parent="@android:Animation" />
+    <style name="Animations" parent="@android:style/Animation" />
     <style name="Animations.SplashScreen">
         <item name="android:windowEnterAnimation">@anim/appear</item>
         <item name="android:windowExitAnimation">@anim/disappear</item>

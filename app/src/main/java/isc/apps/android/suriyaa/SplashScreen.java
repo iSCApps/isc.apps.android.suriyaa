@@ -35,7 +35,7 @@ public class SplashScreen extends Activity {
         });
 
 
-        final SplashScreen sPlashScreen = this;
+        final SplashScreen SplashScreen = this;
 
         // The thread to wait for splash screen events
         mSplashThread =  new Thread(){
@@ -54,7 +54,7 @@ public class SplashScreen extends Activity {
 
                 // Run next activity
                 Intent intent = new Intent();
-                intent.setClass(sPlashScreen, MainActivity.class);
+                intent.setClass(SplashScreen, MainActivity.class);
                 startActivity(intent);
                 stop();
             }
